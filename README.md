@@ -7,13 +7,21 @@ In the code,
 
 This code is pushed to dockerhub and is available at this [URL](https://hub.docker.com/repository/docker/vinaykumarbingi/jdbc-mysql).
 
-Pull the image from dockerhub to your local using following command:
+1a) Pull the image from dockerhub to your local using following command:  
 
-`docker pull vinaykumarbingi/jdbc-mysql`
+    docker pull vinaykumarbingi/jdbc-mysql
 
-Run the local image with environment variables:
+1b) You may also download this git repo and build locally for the docker image. You may do so by running this command in the git directory on the machine where it is downloaded. This command will create the image with name "jdbc-mysql".  
 
-`docker run --name jdbc_run -e MYSQL_USERNAME=Q1ZIbOp6HB -e MYSQL_PASSWORD=Hy3pu8IEQE -e MYSQL_DATABASE=Q1ZIbOp6HB -e MYSQL_HOST=remotemysql.com vinaykumarbingi/jdbc-mysql`
+    docker build -t jdbc-mysql .
+
+2a) Run the local image with environment variables using this command:  
+
+    docker run --name jdbc_run -e MYSQL_USERNAME=Q1ZIbOp6HB -e MYSQL_PASSWORD=Hy3pu8IEQE -e MYSQL_DATABASE=Q1ZIbOp6HB -e MYSQL_HOST=remotemysql.com vinaykumarbingi/jdbc-mysql
+
+2b) Or, if built locally with name "jdbc-mysql", use:
+
+    docker run --name jdbc_run -e MYSQL_USERNAME=Q1ZIbOp6HB -e MYSQL_PASSWORD=Hy3pu8IEQE -e MYSQL_DATABASE=Q1ZIbOp6HB -e MYSQL_HOST=remotemysql.com jdbc-mysql
 
 This will initiate the container with name jdbc_run. It takes the variables passed with the -e option and sets them as environment variables for the container system. The configuration class outputs the result from select query for the database table.
 
