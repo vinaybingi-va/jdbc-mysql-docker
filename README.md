@@ -5,7 +5,7 @@ In the code,
 - application.properties uses the container environment variables to make available to the springboot project
 - JdbcConnection.java configuration class fetches the environment variables and makes the connection to remote mysql server. Prints output of select query from a table in db.
 
-This code is pushed to dockerhub and is available at this URL (https://hub.docker.com/repository/docker/vinaykumarbingi/jdbc-mysql).
+This code is pushed to dockerhub and is available at this [URL](https://hub.docker.com/repository/docker/vinaykumarbingi/jdbc-mysql).
 
 Pull the image from dockerhub to your local using following command:
 
@@ -16,3 +16,9 @@ Run the local image with environment variables:
 `docker run --name jdbc_run -e MYSQL_USERNAME=Q1ZIbOp6HB -e MYSQL_PASSWORD=Hy3pu8IEQE -e MYSQL_DATABASE=Q1ZIbOp6HB -e MYSQL_HOST=remotemysql.com vinaykumarbingi/jdbc-mysql`
 
 This will initiate the container with name jdbc_run. It takes the variables passed with the -e option and sets them as environment variables for the container system. The configuration class outputs the result from select query for the database table.
+
+Image showing docker build and docker run for this project:
+![image1](images/docker-run.png)
+
+Select query on phpmyadmin console for mysql database:
+![image2](images/DB-select.png)
